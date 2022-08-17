@@ -4,6 +4,7 @@ import IframePreview from './preview/IFramePreview'
 import {
   FiHome,
   FiCamera,
+  FiFileText,
 } from 'react-icons/fi'
 
 import { getGlobalSlug, previewURL } from './utils/resolveProductionUrl'
@@ -35,4 +36,5 @@ export default () =>
       S.listItem().title('Home').child(S.editor().id('home').schemaType('home').documentId('singleton-home').views(getPreview('home'))).icon(FiHome),
       S.divider(),
       S.listItem().title('Projects').child(S.documentTypeList('projects').title('Projects')).icon(FiCamera),
+      S.listItem().title('Journal').child(S.documentTypeList('journal').title('Journal')).icon(FiFileText),
     ]);

@@ -6,6 +6,7 @@ import singletonHome from './singletonHome'
 
 // Documents
 import projects from './projects'
+import journal from './journal'
 
 // Common
 import seo from './common/seo'
@@ -19,6 +20,7 @@ export default createSchema({
   types: schemaTypes.concat([
     singletonHome,
     projects,
+    journal,
     defaultImage,
     singleImageBlock,
     doubleImageBlock,
