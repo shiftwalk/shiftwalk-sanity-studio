@@ -36,5 +36,6 @@ export default () =>
       S.listItem().title('Home').child(S.editor().id('home').schemaType('home').documentId('singleton-home').views(getPreview('home'))).icon(FiHome),
       S.divider(),
       S.listItem().title('Projects').child(S.documentTypeList('projects').title('Projects')).icon(FiCamera),
+      S.divider(),
       S.listItem().title('Journal').child(S.documentTypeList('journal').title('Journal')).icon(FiFileText),
     ]);
