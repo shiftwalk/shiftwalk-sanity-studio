@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "shiftwalk-sanity-starter"
-  },
   "api": {
-    "projectId": "your-id-here",
+    "projectId": "pnkh779x",
     "dataset": "production"
+  },
+  "project": {
+    "name": "ShiftWalk"
   },
   "plugins": [
     "@sanity/base",

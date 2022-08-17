@@ -34,5 +34,5 @@ export default () =>
     .items([
       S.listItem().title('Home').child(S.editor().id('home').schemaType('home').documentId('singleton-home').views(getPreview('home'))).icon(FiHome),
       S.divider(),
-      S.listItem().title('Work').child(S.documentTypeList('work').title('Work')).icon(FiCamera),
+      S.listItem().title('Projects').child(S.documentTypeList('projects').title('Projects')).icon(FiCamera),
     ]);
