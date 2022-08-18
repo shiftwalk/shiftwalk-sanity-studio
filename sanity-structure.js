@@ -1,5 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import IframePreview from './preview/IFramePreview'
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
 import {
   FiHome,
@@ -35,7 +36,11 @@ export default () =>
     .items([
       S.listItem().title('Home').child(S.editor().id('home').schemaType('home').documentId('singleton-home').views(getPreview('home'))).icon(FiHome),
       S.divider(),
-      S.listItem().title('Projects').child(S.documentTypeList('projects').title('Projects')).icon(FiCamera),
+      orderableDocumentListDeskItem({
+        type: 'projects',
+        title: 'Projects',
+        icon: FiCamera
+      }),
       S.divider(),
       S.listItem().title('Journal').child(S.documentTypeList('journal').title('Journal')).icon(FiFileText),
     ]);

@@ -1,11 +1,17 @@
 import { FiExternalLink } from 'react-icons/fi'
 import slugify from '../utils/slugify'
+import {
+  orderRankField,
+  orderRankOrdering,
+} from '@sanity/orderable-document-list';
 
 export default {
   title: "Projects",
   name: 'projects',
   type: "document",
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: 'category', hidden: true }),
     {
       title: "Title",
       description: "The name of this project",

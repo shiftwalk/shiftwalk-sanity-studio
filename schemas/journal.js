@@ -38,6 +38,36 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      title: 'Additional Links',
+      name: 'additionalLinks',
+      type: 'array',
+      of: [
+        {
+          title: 'Link',
+          name: 'link',
+          type: 'object',
+          icon: FiExternalLink,
+          fields: [
+            {name: 'linkText', type: 'string', title: 'Link Text', description: 'The text the link will display, eg: "Palmar on The Brand Identity"'},
+            {name: 'linkUrl', type: 'url', title: 'Link URL'},
+          ],
+          preview: {
+            select: {
+              linkText: 'linkText',
+              linkUrl: 'linkUrl'
+            },
+            prepare(selection) {
+              const {linkText, linkUrl} = selection
+              return {
+                title: linkText,
+                subtitle: `${linkUrl}`
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
