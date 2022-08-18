@@ -1,11 +1,17 @@
 import { FiExternalLink } from 'react-icons/fi'
 import slugify from '../utils/slugify'
+import {
+  orderRankField,
+  orderRankOrdering,
+} from '@sanity/orderable-document-list';
 
 export default {
   title: "Journal",
   name: 'journal',
   type: "document",
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: 'category', hidden: true }),
     {
       title: "Title",
       description: "The name of this journal entry",
@@ -13,21 +19,31 @@ export default {
       type: "string",
       validation: Rule => Rule.required()
     },
+    // {
+    //   title: "Post Date",
+    //   description: "Press the button to the right to pick a date.",
+    //   name: "date",
+    //   type: "date",
+    //   options: {
+    //     dateFormat: "MMMM Do YYYY",
+    //   },
+    //   validation: Rule => Rule.required()
+    // },
     {
-      title: "Post Date",
-      description: "Press the button to the right to pick a date.",
-      name: "date",
-      type: "date",
+      title: 'Images',
+      name: 'images',
+      description: 'The image for this journal entry, if more than 1 will creaet a gif',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          type: 'defaultImage',
+          title: 'Image',
+        },
+      ],
       options: {
-        dateFormat: "MMMM Do YYYY",
+        layout: 'grid',
       },
-      validation: Rule => Rule.required()
-    },
-    {
-      title: 'Image',
-      description: "The supporting image for this journal entry",
-      name: 'image',
-      type: 'defaultImage',
       validation: Rule => Rule.required()
     },
     {
@@ -105,15 +121,15 @@ export default {
   preview: {
     select: {
       title: 'title',
-      image: 'image',
-      date: 'date',
+      images: 'images',
+      // date: 'date',
     },
     prepare(selection) {
-      const {title, image, date} = selection
+      const {title, images} = selection
       return {
         title: title,
-        subtitle: `${date}`,
-        media: image
+        // subtitle: `${date}`,
+        media: images[0]
       }
     }
   }

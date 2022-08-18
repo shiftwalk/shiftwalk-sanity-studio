@@ -42,5 +42,9 @@ export default () =>
         icon: FiCamera
       }),
       S.divider(),
-      S.listItem().title('Journal').child(S.documentTypeList('journal').title('Journal')).icon(FiFileText),
+      orderableDocumentListDeskItem({
+        type: 'journal',
+        title: 'Journal',
+        icon: FiFileText
+      }),
     ]);
