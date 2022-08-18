@@ -27,10 +27,20 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      title: 'Teaser Image',
-      description: "The teaser image displayed on the projects index",
-      name: 'teaserImage',
-      type: 'defaultImage',
+      title: 'Teaser Images',
+      name: 'teaserImages',
+      description: 'The teaser image displayed on the projects index, if more than 1 will creaet a gif',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          type: 'defaultImage',
+          title: 'Image',
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
       validation: Rule => Rule.required()
     },
     {
@@ -134,15 +144,15 @@ export default {
   preview: {
     select: {
       title: 'title',
-      teaserImage: 'teaserImage',
+      teaserImages: 'teaserImages',
       projectCode: 'projectCode',
     },
     prepare(selection) {
-      const {title, teaserImage, projectCode} = selection
+      const {title, teaserImages, projectCode} = selection
       return {
         title: title,
         subtitle: `${projectCode}`,
-        media: teaserImage
+        media: teaserImages[0]
       }
     }
   }

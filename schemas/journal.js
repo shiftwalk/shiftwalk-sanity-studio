@@ -1,3 +1,4 @@
+import { FiExternalLink } from 'react-icons/fi'
 import slugify from '../utils/slugify'
 
 export default {
