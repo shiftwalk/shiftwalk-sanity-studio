@@ -11,6 +11,22 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      title: 'Hero Image',
+      name: 'heroImage',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          type: 'defaultImage',
+          title: 'Image',
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+      validation: Rule => Rule.required()
+    },
+    {
       title: 'SEO / Share Settings',
       name: 'seo',
       type: 'seo'

@@ -8,6 +8,11 @@ export default {
   name: "defaultImage",
   fields: [
     {
+      title: 'Video Override',
+      name: 'videoOverride',
+      type: 'file'
+    },
+    {
       title: 'Alternative Text (Optional)',
       description: 'Used by screen readers to describe the image',
       name: 'alt',
