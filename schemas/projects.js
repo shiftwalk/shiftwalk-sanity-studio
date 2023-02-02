@@ -44,6 +44,23 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      title: 'Teaser Images (Hover State)',
+      name: 'teaserImagesHover',
+      description: 'The image that displays over the teaser when you hover',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          type: 'defaultImage',
+          title: 'Image',
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+      validation: Rule => Rule.required()
+    },
+    {
       title: 'Services',
       description: 'The list of services for this project, eg: "Brand", "Visual Direction", "Web Development" etc...',
       name: 'services',
