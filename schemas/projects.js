@@ -57,8 +57,7 @@ export default {
       ],
       options: {
         layout: 'grid',
-      },
-      validation: Rule => Rule.required()
+      }
     },
     {
       title: 'Services',
