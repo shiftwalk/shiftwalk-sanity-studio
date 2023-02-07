@@ -19,16 +19,23 @@ export default {
       type: "string",
       validation: Rule => Rule.required()
     },
-    // {
-    //   title: "Post Date",
-    //   description: "Press the button to the right to pick a date.",
-    //   name: "date",
-    //   type: "date",
-    //   options: {
-    //     dateFormat: "MMMM Do YYYY",
-    //   },
-    //   validation: Rule => Rule.required()
-    // },
+    {
+      title: "Journal Code",
+      description: "The code for this entry, eg: 'SW.056'",
+      name: "journalCode",
+      type: "string",
+      validation: Rule => Rule.required()
+    },
+    {
+      title: "Post Date",
+      description: "Press the button to the right to pick a date.",
+      name: "date",
+      type: "date",
+      options: {
+        dateFormat: "MMMM Do YYYY",
+      },
+      validation: Rule => Rule.required()
+    },
     {
       title: 'Images',
       name: 'images',
@@ -67,6 +74,12 @@ export default {
           fields: [
             {name: 'linkText', type: 'string', title: 'Link Text', description: 'The text the link will display, eg: "Palmar on The Brand Identity"'},
             {name: 'linkUrl', type: 'url', title: 'Link URL'},
+            {
+              name: 'internalLink',
+              type: 'reference',
+              title: 'Optional: Internal Link',
+              to: [{type: 'projects'}]
+            },
           ],
           preview: {
             select: {
